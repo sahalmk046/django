@@ -1,0 +1,286 @@
+re.search()
+
+Finds a pattern anywhere in the string.
+
+re.match()
+
+Checks for a pattern at the beginning.
+
+re.findall()
+
+Returns all matching values.
+
+re.sub()
+
+Replaces matching text.
+
+Real-life example of regX: validating email
+
+import re
+email = "abc@gmail.com"
+pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+if re.match(pattern, email):
+    print("Valid email")
+else:
+    print("Invalid email")
+
+Output:
+
+Valid email
+\d → Digit
+
+Matches any digit from 0 to 9.
+
+re.findall(r"\d", "Age 25")
+
+Output:
+
+['2', '5']
+
+To find a complete number:
+
+re.findall(r"\d+", "I have 25 apples and 10")
+
+Output:
+
+['25', '10']
+\w → Word character
+
+Matches letters, numbers, and underscore.
+
+re.findall(r"\w", "Hi_25")
+
+Output:
+
+['H', 'i', '_', '2', '5']
+\s → Whitespace
+
+Matches spaces, tabs, and new lines.
+
+\d → Digit
+
+Matches any digit from 0 to 9.
+
+re.findall(r"\d", "Age 25")
+
+Output:
+
+['2', '5']
+
+To find a complete number:
+
+re.findall(r"\d+", "I have 25 apples and 10")
+
+Output:
+
+['25', '10']
+\w → Word character
+
+Matches letters, numbers, and underscore.
+
+re.findall(r"\w", "Hi_25")
+
+Output:
+
+['H', 'i', '_', '2', '5']
+\s → Whitespace
+
+Matches spaces, tabs, and new lines.
+
+re.findall(r"\s", "Hello World")
+
+Output:
+
+[' ']
+. → Any character
+
+. matches almost any single character.
+
+re.findall(r".", "abc")
+
+Output:
+
+['a', 'b', 'c']
+
+For example:
+
+re.findall(r"c.t", "cat cot cut")
+
+Output:
+
+['cat', 'cot', 'cut']
+
+Here . means any one character between c
+
+→ One or more
+
+Means one or more occurrences.
+
+re.findall(r"\d+", "I have 25 apples")
+
+Output:
+
+['25']
+
+Without +:
+
+re.findall(r"\d", "I have 25 apples")
+
+Output:
+
+['2', '5']
+
+So + combines consecutive matching chara
+
+→ Zero or more
+
+Means zero or more occurrences.
+
+re.findall(r"ab*", "a ab abb abbb")
+
+It can match:
+
+a
+
+ab
+
+
+→ Zero or more
+
+Means zero or more occurrences.
+
+re.findall(r"ab*", "a ab abb abbb")
+
+It can match:
+
+a
+ab
+abb
+abbb
+
+Because b* means zero or more bs.
+
+
+? → Zero or one
+
+Means the character is optional.
+
+re.findall(r"colou?r", "color colour")
+
+Output:
+
+['color', 'colour']
+
+The ? means:
+
+u can appear 0 or 1 time.
+
+{n} → Exactly n times
+re.findall(r"\d{3}", "123 45 6789")
+
+Output:
+
+['123', '678']
+
+\d{3} means:
+
+Find exactly 3 digits.
+
+{n,m} → Between n and m times
+re.findall(r"\d{2,4}", "1 12 123 1234 12")
+
+Output:
+
+['12', '123', '1234', '12']
+
+
+
+It looks for 2 to 4 digits.
+
+^ → Starts with
+re.search(r"^Hello", "Hello Python")
+
+Match found
+
+But:
+
+re.search(r"^Hello", "Hi Hello Python")
+
+No match
+
+"Hello means:
+
+The text must start with Hello.
+
+$ → Ends with
+re.search(r"Python$", "I am learning Python")
+
+Match found
+
+But:
+
+re.search(r"Python$", "Python is easy")
+
+No match
+
+
+
+
+[] → Character set
+
+Matches one character from the given characters.
+
+re.findall(r"[aeiou]", "hello")
+
+Output:
+
+['e', 'o']
+
+[aeiou] means:
+
+Find any one of a, e, i, o, u.
+
+Another example:
+
+re.findall(r"[0-5]", "123678")
+
+Output:
+
+['1', '2', '3']
+[^] → NOT these characters
+
+Inside [], ^ means not.
+
+re.findall(r"[^0-9]", "abc123")
+
+Output:
+
+['a', 'b', 'c']
+
+It means:
+
+Find characters that are not digits.
+
+| → OR
+re.findall(r"cat|dog", "I have a cat and a dog")
+
+Output:
+
+['cat', 'dog']
+
+It means:
+
+Find cat OR dog.
+
+() → Group
+
+Used to group parts of a pattern.
+
+re.findall(r"(cat|dog)", "cat dog bird")
+
+Output:
+
+['cat', 'dog']
+
+
+

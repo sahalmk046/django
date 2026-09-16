@@ -1,0 +1,10 @@
+f=open('new.txt','w')
+f.write('mango')
+f.write('\napple\n')
+f.write('\norangle\n')
+f.close()
+f=open('new.txt','r')
+f.seek(4)
+print(f.read())
+f.close()
+ 

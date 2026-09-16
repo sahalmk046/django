@@ -1,0 +1,85 @@
+Iterator:
+
+In a for loop, an iterator is the object that gives you one item at a time from a collection.
+
+eg:
+
+numbers = [10, 20, 30]
+
+for x in numbers:
+    print(x)
+
+here works as :
+
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+Output:
+
+10
+20
+30
+
+generator :
+
+A generator is a special type of function that produces values one at a time, instead of creating and storing all values in memory at once.
+
+Generators use the yield keyword instead of return.
+
+
+
+
+generator :
+
+A generator is a special type of function that produces values one at a time, instead of creating and storing all values in memory at once.
+
+Generators use the yield keyword instead of return.
+
+Every generator is an iterator, but not every iterator is a generator.
+
+```python
+def numbers():
+    yield 10
+    yield 20
+    yield 30
+
+g = numbers()   # g is a generator object
+
+print(next(g))
+print(next(g))
+print(next(g))
+```
+
+Output:
+
+```text
+10
+20
+30
+```
+
+generator using for loop:-
+
+```python
+def numbers():
+    yield 10
+    yield 20
+    yield 30
+
+g = numbers()
+
+for x in g:
+    print(x)
+```
+
+```
+
+
+
+
+

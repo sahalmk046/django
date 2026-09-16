@@ -1,0 +1,9 @@
+d={'age':30,'class':3,'place':'kerala'}
+d['name']='sonu'
+print(d)
+d['name']='manu'
+print(d)
+print(d['name'])
+d.pop('age')
+print(d)
+d.popitem()

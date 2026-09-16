@@ -1,0 +1,77 @@
+# An arbitrary keyword argument (written as **kwargs) allows a function to accept any number of named/keyword arguments.
+
+# Inside the function, these arguments are captured into a standard dictionary where the parameter names become keys and the passed values become dictionary values.
+
+# Example
+
+# Python
+# def student_profile(**kwargs):
+#     print("Data type:", type(kwargs))
+#     for key, value in kwargs.items():
+#         print(f"{key}: {value}")
+
+# # Calling with any number of keyword arguments
+# student_profile(name="Sahal", age=22, course="Python", city="Kozhikode")
+# Output:
+
+# Plaintext
+# Data type: <class 'dict'>
+# name: Sahal
+# age: 22
+# course: Python
+# city: Kozhikode
+# Key Points
+
+# Syntax: Uses two asterisks ** before the parameter name (kwargs is just the standard convention, but any valid variable name works).
+
+# Order: In a function definition, **kwargs must always come last (after regular parameters and *args).
+
+# Unpacking Dictionaries: You can pass a dictionary into a function using ** to unpack it into keyword arguments:
+
+# Python
+# info = {"brand": "Tesla", "model": "Model 3"}
+# student_profile(**info)
+
+
+
+# An arbitrary argument (written as *args) allows a function to accept any number of positional arguments.
+
+# Inside the function, these arguments are collected into a tuple.
+
+# Example
+
+# Python
+# def calculate_total(*args):
+#     print("Data type:", type(args))
+#     total = 0
+#     for num in args:
+#         total += num
+#     return total
+
+# # Calling with different numbers of positional arguments
+# print("Result 1:", calculate_total(10, 20))
+# print("Result 2:", calculate_total(1, 2, 3, 4, 5))
+# Output:
+
+# Plaintext
+# Data type: <class 'tuple'>
+# Result 1: 30
+# Data type: <class 'tuple'>
+# Result 2: 15
+# Key Points
+
+# Syntax: Uses a single asterisk * before the parameter name (*args is the convention, but *items or *values also works).
+
+# Positioning: Regular positional parameters must be placed before *args:
+
+# Python
+# def greet(message, *names):
+#     for name in names:
+#         print(f"{message}, {name}!")
+
+# greet("Welcome", "Sahal", "Rahul", "Amina")
+# Unpacking Iterables: You can unpack an existing list or tuple into a function call using *:
+
+# Python
+# nums = [5, 10, 15]
+# print(calculate_total(*nums))  # 30
